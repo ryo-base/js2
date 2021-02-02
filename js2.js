@@ -2,10 +2,11 @@
 
 const btn = document.getElementById('btn');
 
-const checkNum = function(x,y) {
-    if (Number.isInteger(x,y)){
+//整数チェック
+const checkNum = function (x, y) {
+    if (Number.isInteger(x, y)) {
         return 'ok';
-    }else {
+    } else {
         return 'not';
     }
 }
@@ -13,16 +14,13 @@ const checkNum = function(x,y) {
 //計算機能
 const out = function () {
     const fizzValue = document.getElementById('fizz').value;
-    const buzzValue= document.getElementById('buzz').value;
+    const buzzValue = document.getElementById('buzz').value;
     const ul = document.createElement('ul');
 
     const fizz = Number(fizzValue);
     const buzz = Number(buzzValue);
-    
-    
-    console.log(checkNum(fizz,buzz));
-    
-    if (checkNum(fizz,buzz) === 'ok') {
+
+    if (checkNum(fizz, buzz) === 'ok') {
         for (let i = 1; i < 99; i++) {
             const li = document.createElement('li');
             if (i % fizz === 0 && i % buzz === 0) {
@@ -49,13 +47,3 @@ const out = function () {
 //実行
 btn.addEventListener('click', out);
 
-
-// const checkNum = function(x,y) {
-//     if (Number.isInteger(x,y)){
-//         return 'ok';
-//     }else {
-//         return 'not';
-//     }
-// }
-
-// console.log(checkNum(0.5,0.9));
