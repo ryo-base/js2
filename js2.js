@@ -4,21 +4,19 @@ const btn = document.getElementById('btn');
 
 //整数チェック
 const checkNum = function (x, y) {
-    if (Number.isSafeInteger(x)) {
-        if (Number.isSafeInteger(y)) {
-            return true;
-        }
+    if ((Number.isSafeInteger(x) === true) && (Number.isSafeInteger(x) === true)) {
+        return true;
     } else {
         return false;
     }
 }
 
+const ul = document.createElement('ul');
+
 //計算機能
-const out = function () {
+const outResult = function () {
     const fizzValue = document.getElementById('fizz').value;
     const buzzValue = document.getElementById('buzz').value;
-    const ul = document.createElement('ul');
-
 
     //文字列数値化
     const fizz = Number(fizzValue);
@@ -28,8 +26,12 @@ const out = function () {
         const li = document.createElement('li');
         li.textContent = '整数値を入力してください';
         ul.appendChild(li);
+    } else if ((fizz >= 100) && (buzz >= 100)) {
+        const li = document.createElement('li');
+        li.textContent = '表示できるのは二桁の整数までです。';
+        ul.appendChild(li);
     } else if (checkNum(fizz, buzz) === true) { //空欄以外なら
-        for (let i = 1; i < 99; i++) {
+        for (let i = 1; i <= 99; i++) {
             const li = document.createElement('li');
             if (i % fizz === 0 && i % buzz === 0) {
                 li.textContent = 'FizzBuzz' + i;
@@ -40,7 +42,7 @@ const out = function () {
             } else if (i % buzz === 0) {
                 li.textContent = 'Buzz' + i;
                 ul.appendChild(li);
-            } 
+            }
         };
     } else {　//少数または文字なら
         const li = document.createElement('li');
@@ -50,5 +52,9 @@ const out = function () {
     document.body.appendChild(ul);
 }
 
+
 //実行
-btn.addEventListener('click', out);
+btn.addEventListener('click', () => {
+    ul.textContent = '';//前回分の結果を消去
+    outResult();
+});
