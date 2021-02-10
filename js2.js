@@ -26,11 +26,14 @@ const outResult = function () {
         const li = document.createElement('li');
         li.textContent = '整数値を入力してください';
         ul.appendChild(li);
-    } else if ((fizz >= 100) && (buzz >= 100)) {
+        return;
+    }
+
+    if ((fizz >= 100) && (buzz >= 100)) {
         const li = document.createElement('li');
         li.textContent = '表示できるのは二桁の整数までです。';
         ul.appendChild(li);
-    } else if (checkNum(fizz, buzz) === true) { //空欄以外なら
+    } else if (checkNum(fizz, buzz)) { //空欄以外なら
         for (let i = 1; i <= 99; i++) {
             const li = document.createElement('li');
             if (i % fizz === 0 && i % buzz === 0) {
