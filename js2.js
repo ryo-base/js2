@@ -26,12 +26,16 @@ const outResult = function () {
         const li = document.createElement('li');
         li.textContent = '整数値を入力してください';
         ul.appendChild(li);
+        return;
     }
+
     if ((fizz >= 100) && (buzz >= 100)){
-        const li = document.createElement('li');                                        //return;　を書くと動作しない
+        const li = document.createElement('li');
         li.textContent = '表示できるのは二桁の整数までです。';
         ul.appendChild(li);
+        return;
     }
+
     if (checkNum(fizz, buzz)) { //空欄以外なら
         for (let i = 1; i <= 99; i++) {
             const li = document.createElement('li');
@@ -46,7 +50,9 @@ const outResult = function () {
                 ul.appendChild(li);
             }
         };
+        return;
     } 
+
     if (!checkNum(fizz, buzz)) {　//少数または文字なら
         const li = document.createElement('li');
         li.textContent = '整数値を入力してください';
